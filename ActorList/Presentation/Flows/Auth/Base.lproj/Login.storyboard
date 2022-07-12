@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ac5-aK-8Ge">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="museosanscyrl_100.otf">
+            <string>MuseoSansCyrl-100</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Auth View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="AuthViewController" id="BYZ-38-t0r" customClass="AuthViewController" customModule="ActorList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m9j-iO-2Vu">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsS-wF-PAC">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLs-MU-H6k" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="w50-Gu-U40">
+                                                <rect key="frame" x="20" y="292" width="350" height="260"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3F-c8-bvA">
+                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
+                                                        <fontDescription key="fontDescription" name="MuseoSansCyrl-100" family="Museo Sans Cyrl" pointSize="24"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="loginTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TKF-Qe-zKI">
+                                                        <rect key="frame" x="0.0" y="70" width="350" height="34"/>
+                                                        <fontDescription key="fontDescription" name="MuseoSansCyrl-100" family="Museo Sans Cyrl" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="passwordTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mhi-4t-NuN">
+                                                        <rect key="frame" x="0.0" y="124" width="350" height="34"/>
+                                                        <fontDescription key="fontDescription" name="MuseoSansCyrl-100" family="Museo Sans Cyrl" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUX-AB-HrI" customClass="CustomButton" customModule="ActorList" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="178" width="350" height="31"/>
+                                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Войти" cornerStyle="fixed"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Войти"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="pressEnterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J7O-oM-GbN"/>
+                                                        </connections>
+                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wbg-uL-14l">
+                                                        <rect key="frame" x="0.0" y="229" width="350" height="31"/>
+                                                        <subviews>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OcA-3f-dRv">
+                                                                <rect key="frame" x="0.0" y="0.0" width="2" height="31"/>
+                                                                <color key="onTintColor" systemColor="systemGreenColor"/>
+                                                                <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <connections>
+                                                                    <action selector="togleSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="VWO-eH-jhl"/>
+                                                                </connections>
+                                                            </switch>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hh5-W9-nmM">
+                                                                <rect key="frame" x="16" y="0.0" width="334" height="31"/>
+                                                                <fontDescription key="fontDescription" name="MuseoSansCyrl-100" family="Museo Sans Cyrl" pointSize="16"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="w50-Gu-U40" firstAttribute="centerY" secondItem="TLs-MU-H6k" secondAttribute="centerY" id="KQV-hO-wiV"/>
+                                            <constraint firstAttribute="trailing" secondItem="w50-Gu-U40" secondAttribute="trailing" constant="20" id="dPt-hZ-6CR"/>
+                                            <constraint firstItem="w50-Gu-U40" firstAttribute="leading" secondItem="TLs-MU-H6k" secondAttribute="leading" constant="20" id="f1G-M7-Cp9"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="TLs-MU-H6k" firstAttribute="leading" secondItem="fsS-wF-PAC" secondAttribute="leading" id="OFA-Dq-o9J"/>
+                                    <constraint firstAttribute="trailing" secondItem="TLs-MU-H6k" secondAttribute="trailing" id="UM0-Zj-0LA"/>
+                                    <constraint firstAttribute="bottom" secondItem="TLs-MU-H6k" secondAttribute="bottom" id="Yn2-EE-jan"/>
+                                    <constraint firstItem="TLs-MU-H6k" firstAttribute="top" secondItem="fsS-wF-PAC" secondAttribute="top" id="anr-E2-P9r"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="m9j-iO-2Vu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="02F-Ga-So2"/>
+                            <constraint firstItem="m9j-iO-2Vu" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="3QU-kX-BUF"/>
+                            <constraint firstItem="TLs-MU-H6k" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="5oN-98-iCZ"/>
+                            <constraint firstAttribute="bottom" secondItem="m9j-iO-2Vu" secondAttribute="bottom" id="LbT-Jp-nZm"/>
+                            <constraint firstItem="TLs-MU-H6k" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="PTV-xU-bAJ"/>
+                            <constraint firstItem="m9j-iO-2Vu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bd8-qT-X2e"/>
+                            <constraint firstItem="fsS-wF-PAC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nku-ru-i3C"/>
+                            <constraint firstAttribute="trailing" secondItem="fsS-wF-PAC" secondAttribute="trailing" id="qwS-pg-CPc"/>
+                            <constraint firstAttribute="bottom" secondItem="fsS-wF-PAC" secondAttribute="bottom" id="rNq-dG-Iuv"/>
+                            <constraint firstItem="fsS-wF-PAC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ydU-Ol-0AL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="g74-Mx-H64"/>
+                    <connections>
+                        <outlet property="acceptTermsSwitch" destination="OcA-3f-dRv" id="fM8-tf-vJh"/>
+                        <outlet property="backgroundImageView" destination="m9j-iO-2Vu" id="QiO-sb-YQC"/>
+                        <outlet property="contentView" destination="TLs-MU-H6k" id="w2I-3V-lNU"/>
+                        <outlet property="enterButton" destination="AUX-AB-HrI" id="Hht-Ii-09V"/>
+                        <outlet property="loginTextField" destination="TKF-Qe-zKI" id="Fpa-tP-QCL"/>
+                        <outlet property="passwordTextField" destination="mhi-4t-NuN" id="DBi-QV-uAg"/>
+                        <outlet property="scrollView" destination="fsS-wF-PAC" id="Ueb-Lq-3zz"/>
+                        <outlet property="stackView" destination="w50-Gu-U40" id="fgo-5d-bJe"/>
+                        <outlet property="switchTerms" destination="OcA-3f-dRv" id="ASp-qn-7CP"/>
+                        <outlet property="termsLabel" destination="hh5-W9-nmM" id="EMY-GH-ihr"/>
+                        <outlet property="titleLabel" destination="d3F-c8-bvA" id="tGa-Ib-slU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1876.9230769230769" y="68.246445497630333"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BTa-Sc-3pr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ac5-aK-8Ge" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="A0R-xE-UNu">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jn4-T0-1Ra">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="TXq-p7-4o8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ydN-Ki-Vd2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="947.69230769230762" y="68.246445497630333"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="AUX-AB-HrI">
+            <size key="intrinsicContentSize" width="65" height="31"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
