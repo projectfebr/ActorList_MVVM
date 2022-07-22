@@ -47,7 +47,16 @@ class ActorTableViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         viewModel = ActorListViewModel()
-        viewModel.fetchActorList(completion: self.showData)
+        bindData()
+        viewModel.fetchActorList()
+    }
+
+    private func bindData() {
+        viewModel.filteredActors.bind { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.showData()
+            }
+        }
     }
 
     private func setupNavigationBar() {
@@ -84,7 +93,7 @@ extension ActorTableViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ActorTableViewCell.identifier, for: indexPath) as! ActorTableViewCell
-        cell.configure(for: viewModel.filteredActors[indexPath.row])
+        cell.configure(for: viewModel.filteredActors.value[indexPath.row])
         return cell
     }
 }
@@ -93,7 +102,7 @@ extension ActorTableViewController: UITableViewDataSource {
 extension ActorTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let actorId = viewModel.filteredActors[indexPath.row].charid
+        let actorId = viewModel.filteredActors.value[indexPath.row].charid
         let storyboard = UIStoryboard(name: "ActorInfo", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "ActorInfo", creator: { coder in
             ActorInfoViewController.init(actorId: actorId, coder: coder)

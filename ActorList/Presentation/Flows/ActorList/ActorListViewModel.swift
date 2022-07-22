@@ -8,27 +8,26 @@
 import Foundation
 
 class ActorListViewModel {
-    var actors = ActorList() {
-        didSet {
-            filteredActors = actors
-        }
-    }
-
-    var filteredActors = ActorList()
+    var filteredActors: Observable<ActorList> = Observable(ActorList())
 
     var numberOfRows: Int {
         get {
-            return filteredActors.count
+            return filteredActors.value.count
         }
     }
-
     var filterIsEmpty: Bool {
         get {
-            return filteredActors.isEmpty
+            return filteredActors.value.isEmpty
         }
     }
 
-    func fetchActorList(completion: @escaping VoidCallback) {
+    private var actors = ActorList() {
+        didSet {
+            filteredActors.value = actors
+        }
+    }
+
+    func fetchActorList() {
         NetworkManager.request(urlString: URLs.characters) { [weak self] result in
             guard let self = self else { return  }
             switch result {
@@ -39,24 +38,21 @@ class ActorListViewModel {
             case .success(let data):
                 self.actors = self.parse(data: data)
             }
-            DispatchQueue.main.async {
-                completion()
-            }
         }
     }
 
     func filter(by query: String) {
         guard !query.isEmpty else {
-            filteredActors = actors
+            filteredActors.value = actors
             return
         }
-        filteredActors = actors.filter { (item: ActorListElement) -> Bool in
+        filteredActors.value = actors.filter { (item: ActorListElement) -> Bool in
             return item.name?.range(of: query, options: .caseInsensitive) != nil
         }
     }
 
     func reset() {
-        filteredActors = actors
+        filteredActors.value = actors
     }
 
     private func parse(data: Data) -> ActorList {
