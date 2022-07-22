@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class ActorInfoViewController: UIViewController {
-    let actorInfoModel = ActorInfoModel()
+    let viewModel = ActorInfoViewModel()
     let actorId: Int
 
     @IBOutlet weak var actorImageView: UIImageView!
@@ -55,17 +55,25 @@ class ActorInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        actorInfoModel.fetchActorInfo(withId: actorId, completion: updateViews)
+        viewModel.fetchActorInfo(withId: actorId, completion: updateViews)
+    }
+
+    private func bindData() {
+        viewModel.actorInfo.bind { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.updateViews()
+            }
+        }
     }
 
     private func updateViews() {
-        guard let actorInfo = actorInfoModel.actorInfo else {
+        guard let actorInfo = viewModel.actorInfo.value else {
             activity.stopAnimating()
             return
         }
-        navigationItem.title = actorInfoModel.actorInfo?.name
+        navigationItem.title = actorInfo.name
 
-        if let imgUrl = actorInfoModel.actorInfo?.img {
+        if let imgUrl = actorInfo.img {
             let processor = actorImageView.getStyledImageProcessor(size: actorImageView.bounds)
             actorImageView.loadFrom(URLAddress: imgUrl, with: processor)
         }

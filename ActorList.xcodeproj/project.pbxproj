@@ -14,7 +14,6 @@
 		1F3DAEBF2863AAC0006BADAB /* ActorInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3DAEBE2863AAC0006BADAB /* ActorInfo.storyboard */; };
 		1F3DAEC1286482EF006BADAB /* ImageProcessorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3DAEC0286482EF006BADAB /* ImageProcessorExtension.swift */; };
 		1F4BB9242879B7130025ECBF /* BackNavigationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB9232879B7130025ECBF /* BackNavigationTransition.swift */; };
-		1F4BB929287DC7130025ECBF /* ActorInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB928287DC7130025ECBF /* ActorInfoViewModel.swift */; };
 		1F4BB92D287DC75F0025ECBF /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB92C287DC75F0025ECBF /* AuthViewModel.swift */; };
 		1F4BB92F287EA10F0025ECBF /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB92E287EA10F0025ECBF /* Observable.swift */; };
 		1F666A73283FFA06001FC72A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F666A72283FFA06001FC72A /* CustomButton.swift */; };
@@ -27,7 +26,7 @@
 		1F85E063283FD91700C43A6F /* museosanscyrl_100.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1F85E062283FD91700C43A6F /* museosanscyrl_100.otf */; };
 		1F865AF0285C5B0400906522 /* GlobalTypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F865AEF285C5B0400906522 /* GlobalTypeAlias.swift */; };
 		1F865AFC28634A5200906522 /* ActorInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F865AFB28634A5200906522 /* ActorInfoDTO.swift */; };
-		1F865AFE28634BC200906522 /* ActorInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F865AFD28634BC200906522 /* ActorInfoModel.swift */; };
+		1F865AFE28634BC200906522 /* ActorInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F865AFD28634BC200906522 /* ActorInfoViewModel.swift */; };
 		1F865B0028634E1200906522 /* ActorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F865AFF28634E1200906522 /* ActorInfoViewController.swift */; };
 		1FAD46F5284F4DCA007C8E3F /* ActorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD46F4284F4DCA007C8E3F /* ActorDTO.swift */; };
 		1FAD46FA284F51B0007C8E3F /* ActorListMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD46F9284F51B0007C8E3F /* ActorListMockData.swift */; };
@@ -51,7 +50,6 @@
 		1F3DAEBE2863AAC0006BADAB /* ActorInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActorInfo.storyboard; sourceTree = "<group>"; };
 		1F3DAEC0286482EF006BADAB /* ImageProcessorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessorExtension.swift; sourceTree = "<group>"; };
 		1F4BB9232879B7130025ECBF /* BackNavigationTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackNavigationTransition.swift; sourceTree = "<group>"; };
-		1F4BB928287DC7130025ECBF /* ActorInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorInfoViewModel.swift; sourceTree = "<group>"; };
 		1F4BB92C287DC75F0025ECBF /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		1F4BB92E287EA10F0025ECBF /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		1F666A72283FFA06001FC72A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -66,7 +64,7 @@
 		1F85E062283FD91700C43A6F /* museosanscyrl_100.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = museosanscyrl_100.otf; sourceTree = "<group>"; };
 		1F865AEF285C5B0400906522 /* GlobalTypeAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTypeAlias.swift; sourceTree = "<group>"; };
 		1F865AFB28634A5200906522 /* ActorInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorInfoDTO.swift; sourceTree = "<group>"; };
-		1F865AFD28634BC200906522 /* ActorInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorInfoModel.swift; sourceTree = "<group>"; };
+		1F865AFD28634BC200906522 /* ActorInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorInfoViewModel.swift; sourceTree = "<group>"; };
 		1F865AFF28634E1200906522 /* ActorInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorInfoViewController.swift; sourceTree = "<group>"; };
 		1FAD46F4284F4DCA007C8E3F /* ActorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorDTO.swift; sourceTree = "<group>"; };
 		1FAD46F9284F51B0007C8E3F /* ActorListMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListMockData.swift; sourceTree = "<group>"; };
@@ -189,7 +187,7 @@
 			children = (
 				1F3DAEBE2863AAC0006BADAB /* ActorInfo.storyboard */,
 				1F865AFF28634E1200906522 /* ActorInfoViewController.swift */,
-				1F4BB928287DC7130025ECBF /* ActorInfoViewModel.swift */,
+				1F865AFD28634BC200906522 /* ActorInfoViewModel.swift */,
 			);
 			path = ActorInfo;
 			sourceTree = "<group>";
@@ -308,7 +306,6 @@
 			isa = PBXGroup;
 			children = (
 				1FEEC7D62846726700B510A6 /* AuthModel.swift */,
-				1F865AFD28634BC200906522 /* ActorInfoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -447,10 +444,9 @@
 				1F865B0028634E1200906522 /* ActorInfoViewController.swift in Sources */,
 				1FAD46F5284F4DCA007C8E3F /* ActorDTO.swift in Sources */,
 				1F666A73283FFA06001FC72A /* CustomButton.swift in Sources */,
-				1F4BB929287DC7130025ECBF /* ActorInfoViewModel.swift in Sources */,
 				1F865AFC28634A5200906522 /* ActorInfoDTO.swift in Sources */,
 				1FAD47032850D7D2007C8E3F /* NetworkManager.swift in Sources */,
-				1F865AFE28634BC200906522 /* ActorInfoModel.swift in Sources */,
+				1F865AFE28634BC200906522 /* ActorInfoViewModel.swift in Sources */,
 				1FAD46FE284F824E007C8E3F /* ActorImageViewExtension.swift in Sources */,
 				1F85E052283FB94600C43A6F /* AuthViewController.swift in Sources */,
 				1F3DAEC1286482EF006BADAB /* ImageProcessorExtension.swift in Sources */,
