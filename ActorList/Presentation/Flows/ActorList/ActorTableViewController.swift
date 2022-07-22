@@ -8,7 +8,7 @@
 import UIKit
 
 class ActorTableViewController: UIViewController {
-    let actorListModel = ActorListModel()
+    var viewModel: ActorListViewModel!
 
     @IBOutlet weak var actorTableView: UITableView! {
         didSet {
@@ -46,7 +46,8 @@ class ActorTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        actorListModel.fetchActorList(completion: self.showData)
+        viewModel = ActorListViewModel()
+        viewModel.fetchActorList(completion: self.showData)
     }
 
     private func setupNavigationBar() {
@@ -54,7 +55,6 @@ class ActorTableViewController: UIViewController {
         navigationItem.setHidesBackButton(true, animated: false)
         let logoutButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), style: .done, target: self, action: #selector(logout))
         navigationItem.rightBarButtonItem = logoutButton
-//        navigationItem.setRightBarButton(logoutButton, animated: false)
     }
 
     private func toAuthScreen() {
@@ -79,12 +79,12 @@ class ActorTableViewController: UIViewController {
 // MARK: Implements UITableViewDataSource
 extension ActorTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return actorListModel.numberOfRows
+        return viewModel.numberOfRows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ActorTableViewCell.identifier, for: indexPath) as! ActorTableViewCell
-        cell.configure(for: actorListModel.filteredActorList[indexPath.row])
+        cell.configure(for: viewModel.filteredActors[indexPath.row])
         return cell
     }
 }
@@ -93,7 +93,7 @@ extension ActorTableViewController: UITableViewDataSource {
 extension ActorTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let actorId = actorListModel.actorList[indexPath.row].charid
+        let actorId = viewModel.filteredActors[indexPath.row].charid
         let storyboard = UIStoryboard(name: "ActorInfo", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "ActorInfo", creator: { coder in
             ActorInfoViewController.init(actorId: actorId, coder: coder)
@@ -105,8 +105,8 @@ extension ActorTableViewController: UITableViewDelegate {
 // MARK: Implements UISearchBarDelegate
 extension ActorTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        actorListModel.filter(by: searchText)
-        notFoundLabel.isHidden = !actorListModel.filterIsEmpty
+        viewModel.filter(by: searchText)
+        notFoundLabel.isHidden = !viewModel.filterIsEmpty
         actorTableView.reloadData()
     }
 
@@ -118,8 +118,8 @@ extension ActorTableViewController: UISearchBarDelegate {
         searchBar.showsCancelButton = false
         searchBar.searchTextField.text = ""
         searchBar.resignFirstResponder()
-        actorListModel.reset()
-        notFoundLabel.isHidden = !actorListModel.filterIsEmpty
+        viewModel.reset()
+        notFoundLabel.isHidden = !viewModel.filterIsEmpty
         actorTableView.reloadData()
     }
 }

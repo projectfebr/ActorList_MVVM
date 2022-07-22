@@ -15,7 +15,6 @@
 		1F3DAEC1286482EF006BADAB /* ImageProcessorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3DAEC0286482EF006BADAB /* ImageProcessorExtension.swift */; };
 		1F4BB9242879B7130025ECBF /* BackNavigationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB9232879B7130025ECBF /* BackNavigationTransition.swift */; };
 		1F4BB929287DC7130025ECBF /* ActorInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB928287DC7130025ECBF /* ActorInfoViewModel.swift */; };
-		1F4BB92B287DC7380025ECBF /* ActorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB92A287DC7380025ECBF /* ActorListViewModel.swift */; };
 		1F4BB92D287DC75F0025ECBF /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB92C287DC75F0025ECBF /* AuthViewModel.swift */; };
 		1F4BB92F287EA10F0025ECBF /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB92E287EA10F0025ECBF /* Observable.swift */; };
 		1F666A73283FFA06001FC72A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F666A72283FFA06001FC72A /* CustomButton.swift */; };
@@ -33,7 +32,7 @@
 		1FAD46F5284F4DCA007C8E3F /* ActorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD46F4284F4DCA007C8E3F /* ActorDTO.swift */; };
 		1FAD46FA284F51B0007C8E3F /* ActorListMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD46F9284F51B0007C8E3F /* ActorListMockData.swift */; };
 		1FAD46FE284F824E007C8E3F /* ActorImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD46FD284F824E007C8E3F /* ActorImageViewExtension.swift */; };
-		1FAD47002850D769007C8E3F /* ActorListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD46FF2850D769007C8E3F /* ActorListModel.swift */; };
+		1FAD47002850D769007C8E3F /* ActorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD46FF2850D769007C8E3F /* ActorListViewModel.swift */; };
 		1FAD47032850D7D2007C8E3F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAD47022850D7D2007C8E3F /* NetworkManager.swift */; };
 		1FC8513B284A576A00CDFF5A /* TableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC8513A284A576A00CDFF5A /* TableViewCellExtension.swift */; };
 		1FE5B4B42869F25100F020F2 /* UserContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE5B4B32869F25100F020F2 /* UserContext.swift */; };
@@ -53,7 +52,6 @@
 		1F3DAEC0286482EF006BADAB /* ImageProcessorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessorExtension.swift; sourceTree = "<group>"; };
 		1F4BB9232879B7130025ECBF /* BackNavigationTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackNavigationTransition.swift; sourceTree = "<group>"; };
 		1F4BB928287DC7130025ECBF /* ActorInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorInfoViewModel.swift; sourceTree = "<group>"; };
-		1F4BB92A287DC7380025ECBF /* ActorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListViewModel.swift; sourceTree = "<group>"; };
 		1F4BB92C287DC75F0025ECBF /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		1F4BB92E287EA10F0025ECBF /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		1F666A72283FFA06001FC72A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -73,7 +71,7 @@
 		1FAD46F4284F4DCA007C8E3F /* ActorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorDTO.swift; sourceTree = "<group>"; };
 		1FAD46F9284F51B0007C8E3F /* ActorListMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListMockData.swift; sourceTree = "<group>"; };
 		1FAD46FD284F824E007C8E3F /* ActorImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActorImageViewExtension.swift; sourceTree = "<group>"; };
-		1FAD46FF2850D769007C8E3F /* ActorListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListModel.swift; sourceTree = "<group>"; };
+		1FAD46FF2850D769007C8E3F /* ActorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListViewModel.swift; sourceTree = "<group>"; };
 		1FAD47022850D7D2007C8E3F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1FC8513A284A576A00CDFF5A /* TableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellExtension.swift; sourceTree = "<group>"; };
 		1FE5B4B32869F25100F020F2 /* UserContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserContext.swift; sourceTree = "<group>"; };
@@ -264,8 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				1F2959152863A76F002B2A5D /* ActorList.storyboard */,
+				1FAD46FF2850D769007C8E3F /* ActorListViewModel.swift */,
 				1F3246C42843DDD700499FEE /* ActorTableViewController.swift */,
-				1F4BB92A287DC7380025ECBF /* ActorListViewModel.swift */,
 				1FC85138284A54BC00CDFF5A /* Cell */,
 			);
 			path = ActorList;
@@ -310,7 +308,6 @@
 			isa = PBXGroup;
 			children = (
 				1FEEC7D62846726700B510A6 /* AuthModel.swift */,
-				1FAD46FF2850D769007C8E3F /* ActorListModel.swift */,
 				1F865AFD28634BC200906522 /* ActorInfoModel.swift */,
 			);
 			path = Models;
@@ -451,7 +448,6 @@
 				1FAD46F5284F4DCA007C8E3F /* ActorDTO.swift in Sources */,
 				1F666A73283FFA06001FC72A /* CustomButton.swift in Sources */,
 				1F4BB929287DC7130025ECBF /* ActorInfoViewModel.swift in Sources */,
-				1F4BB92B287DC7380025ECBF /* ActorListViewModel.swift in Sources */,
 				1F865AFC28634A5200906522 /* ActorInfoDTO.swift in Sources */,
 				1FAD47032850D7D2007C8E3F /* NetworkManager.swift in Sources */,
 				1F865AFE28634BC200906522 /* ActorInfoModel.swift in Sources */,
@@ -463,7 +459,7 @@
 				1F85E04E283FB94600C43A6F /* AppDelegate.swift in Sources */,
 				1FAD46FA284F51B0007C8E3F /* ActorListMockData.swift in Sources */,
 				1F85E050283FB94600C43A6F /* SceneDelegate.swift in Sources */,
-				1FAD47002850D769007C8E3F /* ActorListModel.swift in Sources */,
+				1FAD47002850D769007C8E3F /* ActorListViewModel.swift in Sources */,
 				1FE5B4E8286EE5A100F020F2 /* KeychainService.swift in Sources */,
 				1F3246CC2843EC9900499FEE /* ActorTableViewCell.swift in Sources */,
 				1FE5B4B7286ADCC900F020F2 /* UserService.swift in Sources */,
