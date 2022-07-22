@@ -14,6 +14,10 @@
 		1F3DAEBF2863AAC0006BADAB /* ActorInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3DAEBE2863AAC0006BADAB /* ActorInfo.storyboard */; };
 		1F3DAEC1286482EF006BADAB /* ImageProcessorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3DAEC0286482EF006BADAB /* ImageProcessorExtension.swift */; };
 		1F4BB9242879B7130025ECBF /* BackNavigationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB9232879B7130025ECBF /* BackNavigationTransition.swift */; };
+		1F4BB929287DC7130025ECBF /* ActorInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB928287DC7130025ECBF /* ActorInfoViewModel.swift */; };
+		1F4BB92B287DC7380025ECBF /* ActorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB92A287DC7380025ECBF /* ActorListViewModel.swift */; };
+		1F4BB92D287DC75F0025ECBF /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB92C287DC75F0025ECBF /* AuthViewModel.swift */; };
+		1F4BB92F287EA10F0025ECBF /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB92E287EA10F0025ECBF /* Observable.swift */; };
 		1F666A73283FFA06001FC72A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F666A72283FFA06001FC72A /* CustomButton.swift */; };
 		1F85E04E283FB94600C43A6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F85E04D283FB94600C43A6F /* AppDelegate.swift */; };
 		1F85E050283FB94600C43A6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F85E04F283FB94600C43A6F /* SceneDelegate.swift */; };
@@ -48,6 +52,10 @@
 		1F3DAEBE2863AAC0006BADAB /* ActorInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActorInfo.storyboard; sourceTree = "<group>"; };
 		1F3DAEC0286482EF006BADAB /* ImageProcessorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessorExtension.swift; sourceTree = "<group>"; };
 		1F4BB9232879B7130025ECBF /* BackNavigationTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackNavigationTransition.swift; sourceTree = "<group>"; };
+		1F4BB928287DC7130025ECBF /* ActorInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorInfoViewModel.swift; sourceTree = "<group>"; };
+		1F4BB92A287DC7380025ECBF /* ActorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListViewModel.swift; sourceTree = "<group>"; };
+		1F4BB92C287DC75F0025ECBF /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		1F4BB92E287EA10F0025ECBF /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		1F666A72283FFA06001FC72A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		1F85E04A283FB94600C43A6F /* ActorList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActorList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F85E04D283FB94600C43A6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				1F865AEF285C5B0400906522 /* GlobalTypeAlias.swift */,
+				1F4BB92E287EA10F0025ECBF /* Observable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -180,8 +189,9 @@
 		1F865AFA28634A1300906522 /* ActorInfo */ = {
 			isa = PBXGroup;
 			children = (
-				1F865AFF28634E1200906522 /* ActorInfoViewController.swift */,
 				1F3DAEBE2863AAC0006BADAB /* ActorInfo.storyboard */,
+				1F865AFF28634E1200906522 /* ActorInfoViewController.swift */,
+				1F4BB928287DC7130025ECBF /* ActorInfoViewModel.swift */,
 			);
 			path = ActorInfo;
 			sourceTree = "<group>";
@@ -243,8 +253,9 @@
 		1FC85131284A2F0500CDFF5A /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				1F85E051283FB94600C43A6F /* AuthViewController.swift */,
 				1F85E053283FB94600C43A6F /* Login.storyboard */,
+				1F85E051283FB94600C43A6F /* AuthViewController.swift */,
+				1F4BB92C287DC75F0025ECBF /* AuthViewModel.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -253,8 +264,9 @@
 			isa = PBXGroup;
 			children = (
 				1F2959152863A76F002B2A5D /* ActorList.storyboard */,
-				1FC85138284A54BC00CDFF5A /* Cell */,
 				1F3246C42843DDD700499FEE /* ActorTableViewController.swift */,
+				1F4BB92A287DC7380025ECBF /* ActorListViewModel.swift */,
+				1FC85138284A54BC00CDFF5A /* Cell */,
 			);
 			path = ActorList;
 			sourceTree = "<group>";
@@ -438,6 +450,8 @@
 				1F865B0028634E1200906522 /* ActorInfoViewController.swift in Sources */,
 				1FAD46F5284F4DCA007C8E3F /* ActorDTO.swift in Sources */,
 				1F666A73283FFA06001FC72A /* CustomButton.swift in Sources */,
+				1F4BB929287DC7130025ECBF /* ActorInfoViewModel.swift in Sources */,
+				1F4BB92B287DC7380025ECBF /* ActorListViewModel.swift in Sources */,
 				1F865AFC28634A5200906522 /* ActorInfoDTO.swift in Sources */,
 				1FAD47032850D7D2007C8E3F /* NetworkManager.swift in Sources */,
 				1F865AFE28634BC200906522 /* ActorInfoModel.swift in Sources */,
@@ -445,6 +459,7 @@
 				1F85E052283FB94600C43A6F /* AuthViewController.swift in Sources */,
 				1F3DAEC1286482EF006BADAB /* ImageProcessorExtension.swift in Sources */,
 				1FC8513B284A576A00CDFF5A /* TableViewCellExtension.swift in Sources */,
+				1F4BB92F287EA10F0025ECBF /* Observable.swift in Sources */,
 				1F85E04E283FB94600C43A6F /* AppDelegate.swift in Sources */,
 				1FAD46FA284F51B0007C8E3F /* ActorListMockData.swift in Sources */,
 				1F85E050283FB94600C43A6F /* SceneDelegate.swift in Sources */,
@@ -456,6 +471,7 @@
 				1F865AF0285C5B0400906522 /* GlobalTypeAlias.swift in Sources */,
 				1FE5B4B42869F25100F020F2 /* UserContext.swift in Sources */,
 				1FE5B4E6286EE58400F020F2 /* Keychain.swift in Sources */,
+				1F4BB92D287DC75F0025ECBF /* AuthViewModel.swift in Sources */,
 				1F4BB9242879B7130025ECBF /* BackNavigationTransition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -618,7 +634,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mynovoros.co.ActorList;
+				PRODUCT_BUNDLE_IDENTIFIER = "mynovoros.co.ActorList-MVVM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -648,7 +664,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mynovoros.co.ActorList;
+				PRODUCT_BUNDLE_IDENTIFIER = "mynovoros.co.ActorList-MVVM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

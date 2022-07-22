@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ac5-aK-8Ge">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -38,6 +38,12 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3F-c8-bvA">
                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
                                                         <fontDescription key="fontDescription" name="MuseoSansCyrl-100" family="Museo Sans Cyrl" pointSize="24"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMe-1Y-B9E">
+                                                        <rect key="frame" x="0.0" y="60" width="350" height="0.0"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -129,8 +135,9 @@
                         <outlet property="acceptTermsSwitch" destination="OcA-3f-dRv" id="fM8-tf-vJh"/>
                         <outlet property="backgroundImageView" destination="m9j-iO-2Vu" id="QiO-sb-YQC"/>
                         <outlet property="contentView" destination="TLs-MU-H6k" id="w2I-3V-lNU"/>
+                        <outlet property="emailTextField" destination="TKF-Qe-zKI" id="Fpa-tP-QCL"/>
                         <outlet property="enterButton" destination="AUX-AB-HrI" id="Hht-Ii-09V"/>
-                        <outlet property="loginTextField" destination="TKF-Qe-zKI" id="Fpa-tP-QCL"/>
+                        <outlet property="loginErrorDescriptionLabel" destination="GMe-1Y-B9E" id="I2x-hb-3yk"/>
                         <outlet property="passwordTextField" destination="mhi-4t-NuN" id="DBi-QV-uAg"/>
                         <outlet property="scrollView" destination="fsS-wF-PAC" id="Ueb-Lq-3zz"/>
                         <outlet property="stackView" destination="w50-Gu-U40" id="fgo-5d-bJe"/>
@@ -142,27 +149,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1876.9230769230769" y="68.246445497630333"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="BTa-Sc-3pr">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ac5-aK-8Ge" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="A0R-xE-UNu">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jn4-T0-1Ra">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="TXq-p7-4o8"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ydN-Ki-Vd2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="947.69230769230762" y="68.246445497630333"/>
         </scene>
     </scenes>
     <designables>

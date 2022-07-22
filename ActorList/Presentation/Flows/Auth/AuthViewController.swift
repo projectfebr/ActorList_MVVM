@@ -16,16 +16,10 @@ class AuthViewController: UIViewController {
         static let enterTitle = "Войти"
         static let alertTitle = "Уведомление"
         static let alertMessageEmailNotValid = "Не валидный email"
+        static let error = "Ошибка"
     }
-    
-    private let viewModel = AuthModel()
-    private var isEnabledEnterButton = false {
-        didSet {
-            if oldValue != isEnabledEnterButton {
-                enterButton.isEnabled = isEnabledEnterButton
-            }
-        }
-    }
+
+    private let viewModel = AuthViewModel()
 
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
@@ -35,7 +29,6 @@ class AuthViewController: UIViewController {
             scrollView.isScrollEnabled = false
         }
     }
-
     @IBOutlet weak var switchTerms: UISwitch! {
         didSet {
             switchTerms.isOn = false
@@ -43,35 +36,35 @@ class AuthViewController: UIViewController {
             switchTerms.layer.cornerRadius = 16.0
         }
     }
-
     @IBOutlet weak var contentView: UIView!
-
     @IBOutlet weak var stackView: UIStackView!
-
     @IBOutlet weak var backgroundImageView: UIImageView! {
         didSet {
             backgroundImageView.contentMode = .scaleAspectFill
             backgroundImageView.image = UIImage(named: "background_image")
         }
     }
-
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
             titleLabel.text = Constants.mainTitle
             titleLabel.textAlignment = .center
         }
     }
-
-    @IBOutlet weak var loginTextField: UITextField! {
+    @IBOutlet weak var loginErrorDescriptionLabel: UILabel! {
         didSet {
-            loginTextField.delegate = self
-            loginTextField.placeholder = Constants.loginPlacegolder
-            loginTextField.textContentType = .emailAddress
-            loginTextField.keyboardType = .emailAddress
-            loginTextField.returnKeyType = .next
+            loginErrorDescriptionLabel.isHidden = true
+            loginErrorDescriptionLabel.textColor = .red
         }
     }
-
+    @IBOutlet weak var emailTextField: UITextField! {
+        didSet {
+            emailTextField.delegate = self
+            emailTextField.placeholder = Constants.loginPlacegolder
+            emailTextField.textContentType = .emailAddress
+            emailTextField.keyboardType = .emailAddress
+            emailTextField.returnKeyType = .next
+        }
+    }
     @IBOutlet weak var passwordTextField: UITextField! {
         didSet {
             passwordTextField.delegate = self
@@ -82,7 +75,6 @@ class AuthViewController: UIViewController {
             passwordTextField.returnKeyType = .done
         }
     }
-
     @IBOutlet weak var enterButton: CustomButton! {
         didSet {
             enterButton.setTitleColor(.black, for: .normal)
@@ -90,9 +82,7 @@ class AuthViewController: UIViewController {
             enterButton.isEnabled = false
         }
     }
-
     @IBOutlet weak var acceptTermsSwitch: UISwitch!
-
     @IBOutlet weak var termsLabel: UILabel! {
         didSet {
             termsLabel.text = Constants.termsTitle
@@ -103,52 +93,77 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
         registerForKeyboardNotifications()
 #if DEBUG
-        loginTextField.text = "myapp@swift.com"
+        emailTextField.text = "myapp@swift.com"
         passwordTextField.text = "password12345"
         acceptTermsSwitch.isOn = true
         enterButton.isEnabled = true
-        viewModel.login = "myapp@swift.com"
-        viewModel.password = "password12345"
+        viewModel.updateCredentials(username: "myapp@swift.com", password: "password12345", terms: true)
 #endif
+        bindData()
     }
 
     deinit {
         removeKeyboardNotifications()
     }
-    
+
     @IBAction func pressEnterButton(_ sender: CustomButton) {
         onPressEnterButton()
     }
-    
     @IBAction func togleSwitch(_ sender: UISwitch) {
-        viewModel.terms = sender.isOn
-        isEnabledEnterButton = viewModel.isOnEnterButton
+        viewModel.updateCredentials(terms: sender.isOn)
     }
 
-    private func onPressEnterButton() {
-        if !viewModel.isValidEmail() {
-            passwordTextField.resignFirstResponder()
-            loginTextField.resignFirstResponder()
-            loginTextField.textColor = .red
-            viewModel.isOnEnterButton = false
-            showAlert(title: Constants.alertTitle,message: Constants.alertMessageEmailNotValid)
-        } else {
-            if viewModel.auth() {
-                showActorList()
-            }
+    private func bindData() {
+        viewModel.canPressEnterButton.bind { [weak self] isEnabled in
+            self?.enterButton.isEnabled = isEnabled
+        }
+        viewModel.credentialsInputErrorMessage.bind { [weak self] in
+            guard let vc = self else { return }
+            vc.loginErrorDescriptionLabel.isHidden = false
+            vc.loginErrorDescriptionLabel.text = $0
+        }
+        viewModel.isUsernameTextFieldHighLighted.bind { [weak self] in
+            guard let vc = self else { return }
+            if $0 { vc.highlightTextField(vc.emailTextField) }
+        }
+        viewModel.isPasswordTextFieldHighLighted.bind { [weak self] in
+            guard let vc = self else { return }
+            if $0 { vc.highlightTextField(vc.passwordTextField) }
+        }
+        viewModel.errorMessage.bind { [weak self] in
+            guard let errorMessage = $0, let vc = self else { return }
+            vc.showAlert(title: Constants.error, message: errorMessage)
         }
     }
-    
+    private func onPressEnterButton() {
+        viewModel.updateCredentials(username: emailTextField.text, password: passwordTextField.text, terms: acceptTermsSwitch.isOn)
+        switch viewModel.credentialsInput() {
+        case .Correct:
+            auth()
+        case .Incorrect:
+            return
+        }
+    }
+    private func auth(){
+        if viewModel.auth() {
+            showActorList()
+        }
+    }
     private func showAlert(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
         self.present(alert, animated: true, completion: nil)
     }
-
     private func showActorList() {
         let storyboard = UIStoryboard(name: "ActorList", bundle: nil)
         guard let actorListViewController = storyboard.instantiateViewController(withIdentifier: "ActorListViewController") as? ActorTableViewController else { return  }
         show(actorListViewController, sender: nil)
+    }
+    private func highlightTextField(_ textField: UITextField) {
+        textField.resignFirstResponder()
+        textField.layer.borderWidth = 1.0
+        textField.layer.borderColor = UIColor.red.cgColor
+        textField.layer.cornerRadius = 3
     }
 }
 
@@ -162,6 +177,9 @@ extension AuthViewController: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.textColor = .black
+        loginErrorDescriptionLabel.isHidden = true
+        emailTextField.layer.borderWidth = 0
+        passwordTextField.layer.borderWidth = 0
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -175,11 +193,10 @@ extension AuthViewController: UITextFieldDelegate {
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
         if textField.restorationIdentifier == TextFields.loginTextFieldIdentifier {
-            viewModel.login = textField.text ?? ""
+            viewModel.updateCredentials(username: textField.text)
         } else if textField.restorationIdentifier == TextFields.passwordTextFieldIdentifier {
-            viewModel.password = textField.text ?? ""
+            viewModel.updateCredentials(password: textField.text)
         }
-        isEnabledEnterButton = viewModel.isOnEnterButton
     }
 }
 
