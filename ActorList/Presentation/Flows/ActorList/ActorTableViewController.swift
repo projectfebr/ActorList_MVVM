@@ -8,7 +8,7 @@
 import UIKit
 
 class ActorTableViewController: UIViewController {
-    var viewModel: ActorListViewModel!
+    var tableView: ActorListViewModel!
 
     @IBOutlet weak var actorTableView: UITableView! {
         didSet {
@@ -46,13 +46,13 @@ class ActorTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        viewModel = ActorListViewModel()
+        tableView = ActorListViewModel()
         bindData()
-        viewModel.fetchActorList()
+        tableView.fetchActorList()
     }
 
     private func bindData() {
-        viewModel.filteredActors.bind { [weak self] _ in
+        tableView.filteredActors.bind { [weak self] _ in
             DispatchQueue.main.async {
                 self?.showData()
             }
@@ -88,12 +88,12 @@ class ActorTableViewController: UIViewController {
 // MARK: Implements UITableViewDataSource
 extension ActorTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRows
+        return tableView.numberOfRows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ActorTableViewCell.identifier, for: indexPath) as! ActorTableViewCell
-        cell.configure(for: viewModel.filteredActors.value[indexPath.row])
+        cell.configure(for: tableView.filteredActors.value[indexPath.row])
         return cell
     }
 }
@@ -102,7 +102,7 @@ extension ActorTableViewController: UITableViewDataSource {
 extension ActorTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let actorId = viewModel.filteredActors.value[indexPath.row].charid
+        let actorId = tableView.filteredActors.value[indexPath.row].charid
         let storyboard = UIStoryboard(name: "ActorInfo", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "ActorInfo", creator: { coder in
             ActorInfoViewController.init(actorId: actorId, coder: coder)
@@ -114,7 +114,7 @@ extension ActorTableViewController: UITableViewDelegate {
 // MARK: Implements UISearchBarDelegate
 extension ActorTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.filter(by: searchText)
+        tableView.filter(by: searchText)
         notFoundLabel.isHidden = !viewModel.filterIsEmpty
         actorTableView.reloadData()
     }
@@ -127,7 +127,7 @@ extension ActorTableViewController: UISearchBarDelegate {
         searchBar.showsCancelButton = false
         searchBar.searchTextField.text = ""
         searchBar.resignFirstResponder()
-        viewModel.reset()
+        tableView.reset()
         notFoundLabel.isHidden = !viewModel.filterIsEmpty
         actorTableView.reloadData()
     }

@@ -20,6 +20,7 @@ class AuthViewModel {
         model = model.copyWith(email: username, password: password, terms: terms)
         checkEnterButton()
     }
+
     func auth() -> Bool {
         UserService.shared.auth(email: model.email, password: model.password)
 // MARK: раскомментировать для тестирования ошибки авторизации
@@ -28,27 +29,28 @@ class AuthViewModel {
         return true
 
     }
+
     func credentialsInput() -> CredentialsInputStatus {
         if model.email.isEmpty && model.password.isEmpty {
             credentialsInputErrorMessage.value = "Please provide email and password."
-            return .Incorrect
+            return .incorrect
         }
         if model.email.isEmpty {
             credentialsInputErrorMessage.value = "Email field is empty."
             isUsernameTextFieldHighLighted.value = true
-            return .Incorrect
+            return .incorrect
         }
         if isNotValidEmail(model.email) {
             credentialsInputErrorMessage.value = "Email is not valid."
             isUsernameTextFieldHighLighted.value = true
-            return .Incorrect
+            return .incorrect
         }
         if model.password.isEmpty {
             credentialsInputErrorMessage.value = "Password field is empty."
             isPasswordTextFieldHighLighted.value = true
-            return .Incorrect
+            return .incorrect
         }
-        return .Correct
+        return .correct
     }
 
     private func isNotValidEmail(_ email: String) -> Bool {
@@ -56,6 +58,7 @@ class AuthViewModel {
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return !emailPred.evaluate(with: email)
     }
+    
     private func checkEnterButton() {
         canPressEnterButton.value = !model.email.isEmpty && !model.password.isEmpty && model.terms
     }
@@ -63,7 +66,7 @@ class AuthViewModel {
 
 extension AuthViewModel {
     enum CredentialsInputStatus {
-        case Correct
-        case Incorrect
+        case correct
+        case incorrect
     }
 }

@@ -21,7 +21,6 @@ class Observable<T> {
         self.value = value
     }
 
-
     func bind(listener: Listener?) {
         self.listener = listener
         listener?(value)

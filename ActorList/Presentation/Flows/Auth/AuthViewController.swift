@@ -97,7 +97,7 @@ class AuthViewController: UIViewController {
         passwordTextField.text = "password12345"
         acceptTermsSwitch.isOn = true
         enterButton.isEnabled = true
-        viewModel.updateCredentials(username: "myapp@swift.com", password: "password12345", terms: true)
+        tableView.updateCredentials(username: "myapp@swift.com", password: "password12345", terms: true)
 #endif
         bindData()
     }
@@ -135,30 +135,35 @@ class AuthViewController: UIViewController {
             vc.showAlert(title: Constants.error, message: errorMessage)
         }
     }
+
     private func onPressEnterButton() {
         viewModel.updateCredentials(username: emailTextField.text, password: passwordTextField.text, terms: acceptTermsSwitch.isOn)
         switch viewModel.credentialsInput() {
-        case .Correct:
+        case .correct:
             auth()
-        case .Incorrect:
+        case .incorrect:
             return
         }
     }
+
     private func auth(){
         if viewModel.auth() {
             showActorList()
         }
     }
+
     private func showAlert(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
         self.present(alert, animated: true, completion: nil)
     }
+
     private func showActorList() {
         let storyboard = UIStoryboard(name: "ActorList", bundle: nil)
         guard let actorListViewController = storyboard.instantiateViewController(withIdentifier: "ActorListViewController") as? ActorTableViewController else { return  }
         show(actorListViewController, sender: nil)
     }
+    
     private func highlightTextField(_ textField: UITextField) {
         textField.resignFirstResponder()
         textField.layer.borderWidth = 1.0
