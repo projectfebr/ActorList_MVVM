@@ -88,12 +88,12 @@ class ActorTableViewController: UIViewController {
 // MARK: Implements UITableViewDataSource
 extension ActorTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableView.numberOfRows
+        return self.tableView.numberOfRows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ActorTableViewCell.identifier, for: indexPath) as! ActorTableViewCell
-        cell.configure(for: tableView.filteredActors.value[indexPath.row])
+        cell.configure(for: self.tableView.filteredActors.value[indexPath.row])
         return cell
     }
 }
@@ -102,7 +102,7 @@ extension ActorTableViewController: UITableViewDataSource {
 extension ActorTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let actorId = tableView.filteredActors.value[indexPath.row].charid
+        let actorId = self.tableView.filteredActors.value[indexPath.row].charid
         let storyboard = UIStoryboard(name: "ActorInfo", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "ActorInfo", creator: { coder in
             ActorInfoViewController.init(actorId: actorId, coder: coder)
@@ -115,7 +115,7 @@ extension ActorTableViewController: UITableViewDelegate {
 extension ActorTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         tableView.filter(by: searchText)
-        notFoundLabel.isHidden = !viewModel.filterIsEmpty
+        notFoundLabel.isHidden = !tableView.filterIsEmpty
         actorTableView.reloadData()
     }
 
@@ -128,7 +128,7 @@ extension ActorTableViewController: UISearchBarDelegate {
         searchBar.searchTextField.text = ""
         searchBar.resignFirstResponder()
         tableView.reset()
-        notFoundLabel.isHidden = !viewModel.filterIsEmpty
+        notFoundLabel.isHidden = !tableView.filterIsEmpty
         actorTableView.reloadData()
     }
 }

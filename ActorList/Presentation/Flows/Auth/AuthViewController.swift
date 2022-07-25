@@ -97,7 +97,7 @@ class AuthViewController: UIViewController {
         passwordTextField.text = "password12345"
         acceptTermsSwitch.isOn = true
         enterButton.isEnabled = true
-        tableView.updateCredentials(username: "myapp@swift.com", password: "password12345", terms: true)
+        viewModel.updateCredentials(username: "myapp@swift.com", password: "password12345", terms: true)
 #endif
         bindData()
     }
