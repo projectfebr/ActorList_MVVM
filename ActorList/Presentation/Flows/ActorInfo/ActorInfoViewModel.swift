@@ -7,9 +7,9 @@
 
 import Foundation
 
-class ActorInfoModel {
-    var actorInfo: ActorInfo?
-    
+class ActorInfoViewModel {
+    var actorInfo: Observable<ActorInfo?> = Observable(nil)
+
     func fetchActorInfo(withId id: Int, completion: @escaping VoidCallback) {
         NetworkManager.request(urlString: URLs.characters + "\(id)") { [weak self] result in
             guard let self = self else { return  }
@@ -17,7 +17,7 @@ class ActorInfoModel {
             case .failure:
                 break
             case .success(let data):
-                self.actorInfo = self.parse(data: data)
+                self.actorInfo.value = self.parse(data: data)
             }
             DispatchQueue.main.async {
                 completion()

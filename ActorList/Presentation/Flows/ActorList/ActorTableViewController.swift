@@ -8,13 +8,13 @@
 import UIKit
 
 class ActorTableViewController: UIViewController {
-    let actorListModel = ActorListModel()
+    var viewModel: ActorListViewModel!
 
-    @IBOutlet weak var actorTableView: UITableView! {
+    @IBOutlet weak var tableView: UITableView! {
         didSet {
-            actorTableView.dataSource = self
-            actorTableView.delegate = self
-            actorTableView.register(ActorTableViewCell.nib, forCellReuseIdentifier: ActorTableViewCell.identifier)
+            tableView.dataSource = self
+            tableView.delegate = self
+            tableView.register(ActorTableViewCell.nib, forCellReuseIdentifier: ActorTableViewCell.identifier)
         }
     }
 
@@ -46,7 +46,17 @@ class ActorTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        actorListModel.fetchActorList(completion: self.showData)
+        viewModel = ActorListViewModel()
+        bindData()
+        viewModel.fetchActorList()
+    }
+
+    private func bindData() {
+        viewModel.filteredActors.bind { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.showData()
+            }
+        }
     }
 
     private func setupNavigationBar() {
@@ -54,7 +64,6 @@ class ActorTableViewController: UIViewController {
         navigationItem.setHidesBackButton(true, animated: false)
         let logoutButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), style: .done, target: self, action: #selector(logout))
         navigationItem.rightBarButtonItem = logoutButton
-//        navigationItem.setRightBarButton(logoutButton, animated: false)
     }
 
     private func toAuthScreen() {
@@ -72,19 +81,19 @@ class ActorTableViewController: UIViewController {
 
     private func showData() {
         activityIndicator.stopAnimating()
-        actorTableView.reloadData()
+        tableView.reloadData()
     }
 }
 
 // MARK: Implements UITableViewDataSource
 extension ActorTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return actorListModel.numberOfRows
+        return viewModel.numberOfRows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ActorTableViewCell.identifier, for: indexPath) as! ActorTableViewCell
-        cell.configure(for: actorListModel.filteredActorList[indexPath.row])
+        cell.configure(for: viewModel.filteredActors.value[indexPath.row])
         return cell
     }
 }
@@ -93,7 +102,7 @@ extension ActorTableViewController: UITableViewDataSource {
 extension ActorTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let actorId = actorListModel.actorList[indexPath.row].charid
+        let actorId = viewModel.filteredActors.value[indexPath.row].charid
         let storyboard = UIStoryboard(name: "ActorInfo", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "ActorInfo", creator: { coder in
             ActorInfoViewController.init(actorId: actorId, coder: coder)
@@ -105,9 +114,9 @@ extension ActorTableViewController: UITableViewDelegate {
 // MARK: Implements UISearchBarDelegate
 extension ActorTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        actorListModel.filter(by: searchText)
-        notFoundLabel.isHidden = !actorListModel.filterIsEmpty
-        actorTableView.reloadData()
+        viewModel.filter(by: searchText)
+        notFoundLabel.isHidden = !viewModel.filterIsEmpty
+        tableView.reloadData()
     }
 
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -118,9 +127,9 @@ extension ActorTableViewController: UISearchBarDelegate {
         searchBar.showsCancelButton = false
         searchBar.searchTextField.text = ""
         searchBar.resignFirstResponder()
-        actorListModel.reset()
-        notFoundLabel.isHidden = !actorListModel.filterIsEmpty
-        actorTableView.reloadData()
+        viewModel.reset()
+        notFoundLabel.isHidden = !viewModel.filterIsEmpty
+        tableView.reloadData()
     }
 }
 

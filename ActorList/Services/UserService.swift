@@ -20,8 +20,8 @@ class UserService {
         userContext.login = nil
     }
 
-    func login(login: String, password: String) {
-        userContext.login = login
+    func auth(email: String, password: String) {
+        userContext.login = email
         userContext.password = password
     }
 

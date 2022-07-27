@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,7 +12,7 @@
             <objects>
                 <viewController storyboardIdentifier="ActorListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2VQ-e4-1vd" customClass="ActorTableViewController" customModule="ActorList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZMq-VA-tB5">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="66" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="whR-vW-9DT">
@@ -58,9 +56,9 @@
                     <navigationItem key="navigationItem" id="JUr-c6-Ozt"/>
                     <connections>
                         <outlet property="activityIndicator" destination="K0d-cR-kZ1" id="LEY-Nd-Ocd"/>
-                        <outlet property="actorTableView" destination="whR-vW-9DT" id="5GK-Ld-6df"/>
                         <outlet property="notFoundLabel" destination="98i-6h-Ix8" id="QQL-Hx-gC5"/>
                         <outlet property="searchBar" destination="kkl-By-mzC" id="BEv-j4-WhT"/>
+                        <outlet property="tableView" destination="whR-vW-9DT" id="5GK-Ld-6df"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nho-iI-t0X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

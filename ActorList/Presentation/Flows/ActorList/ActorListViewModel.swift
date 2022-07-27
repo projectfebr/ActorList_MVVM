@@ -7,56 +7,52 @@
 
 import Foundation
 
-class ActorListModel {
-    var actorList = ActorList() {
-        didSet {
-            filteredActorList = actorList
-        }
-    }
-
-    var filteredActorList = ActorList()
+class ActorListViewModel {
+    var filteredActors: Observable<ActorList> = Observable(ActorList())
 
     var numberOfRows: Int {
         get {
-            return filteredActorList.count
+            return filteredActors.value.count
         }
     }
-
     var filterIsEmpty: Bool {
         get {
-            return filteredActorList.isEmpty
+            return filteredActors.value.isEmpty
         }
     }
 
-    func fetchActorList(completion: @escaping VoidCallback) {
+    private var actors = ActorList() {
+        didSet {
+            filteredActors.value = actors
+        }
+    }
+
+    func fetchActorList() {
         NetworkManager.request(urlString: URLs.characters) { [weak self] result in
             guard let self = self else { return  }
             switch result {
             case .failure:
                 if let mockData = ActorListMockData.json.data(using: .utf8) {
-                    self.actorList = self.parse(data: mockData)
+                    self.actors = self.parse(data: mockData)
                 }
             case .success(let data):
-                self.actorList = self.parse(data: data)
-            }
-            DispatchQueue.main.async {
-                completion()
+                self.actors = self.parse(data: data)
             }
         }
     }
 
     func filter(by query: String) {
         guard !query.isEmpty else {
-            filteredActorList = actorList
+            filteredActors.value = actors
             return
         }
-        filteredActorList = actorList.filter { (item: ActorListElement) -> Bool in
+        filteredActors.value = actors.filter { (item: ActorListElement) -> Bool in
             return item.name?.range(of: query, options: .caseInsensitive) != nil
         }
     }
 
     func reset() {
-        filteredActorList = actorList
+        filteredActors.value = actors
     }
 
     private func parse(data: Data) -> ActorList {
