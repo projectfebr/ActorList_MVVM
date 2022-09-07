@@ -7,4 +7,5 @@ target 'ActorList' do
 
   # Pods for ActorList
   pod 'Kingfisher', '~> 7.0'
+  pod 'RealmSwift'
 end
