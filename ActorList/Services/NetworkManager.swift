@@ -22,6 +22,8 @@ class NetworkManager {
             completion(.failure)
             return
         }
+        
+        #warning ("TODO: refactoring, use async/await")
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             guard let responseData = data, error == nil else {
                 completion(.failure)

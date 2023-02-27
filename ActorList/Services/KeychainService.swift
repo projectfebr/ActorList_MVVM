@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+#warning ("TODO: найучить брать пароль из связки ключей при авторизации")
 class KeychainService {
     private enum Keys: String {
         case login

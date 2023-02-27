@@ -49,6 +49,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    #warning ("TODO: refactoring, use coordinator")
     private func configureInitialViewController() {
         let initialViewController: UIViewController
         let isAuth = UserService.shared.isAuth
